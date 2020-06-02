@@ -1,0 +1,36 @@
+
+<div style="width: 96%; height: 96%; overflow-y: scroll; margin: 2%;">
+    <form >
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="floating">Nome Completo <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input [value]="nome" required type="text" (input)="nome = $event.target.value"></ion-input>
+        </ion-item>
+        <ion-item>
+            <app-imageup></app-imageup>
+        </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input [value]="email" required (input)="email = $event.target.value" inputmode="email"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">CPF <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input [value]="cpf" required (input)="cpf = $event.target.value" [brmasker]="{person: true}"></ion-input>
+            </ion-item>
+          
+          <ion-item>
+              <ion-label position="floating">Telefone <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input [value]="telefone" required (input)="telefone = $event.target.value" [brmasker]="{phone: true}"></ion-input>
+          </ion-item>         
+          <app-endereco></app-endereco>
+        <ion-item>
+          <ion-label position="floating">Fale sobre você</ion-label>
+          <ion-textarea [value]="descricao" required  (input)="descricao = $event.target.value" ></ion-textarea>
+        </ion-item>
+      </ion-list>
+      <div class="ion-padding">
+        <ion-button expand="block" (click)="loginFormMethod()" class="ion-no-margin">Enviar solicitação</ion-button>
+      </div>
+    </form>
+</div>

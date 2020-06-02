@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Home</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+<div id="container" style="width: 96%; height: 96%; overflow-y: scroll; margin: 2%;">
+  <div>
+    <autocomplete-field></autocomplete-field>
+  </div>
+  <div id="imov-header">
+      <ion-label >
+          <img src="../../assets/img/propagando-superior.jpg">
+      </ion-label>
+  </div>
+  <div id="acoes" >
+    <ion-list>
+      <ion-label routerLink='../home'>
+        <img src="../../assets/img/embalagem.png" style="max-width: 25%;">
+        
+      </ion-label>
+      <ion-label routerLink='../ecobag'>
+        <img src="../../assets/img/fechar-ecobag.png" style="max-width: 25%;">
+      </ion-label>
+      <ion-label routerLink='../coletor'>
+          <img src="../../assets/img/chamar-coletor.png" style="max-width: 25%;">
+        </ion-label>
+        <ion-label routerLink='../footprint'>
+            <img src="../../assets/img/footprint.png" style="max-width: 25%;">
+          </ion-label>
+    </ion-list>
+  </div>
+  <div id="resumo-posicao" style="margin-top: 2%;">
+      <ion-list>
+          <ion-label routerLink="../registro">
+              <img  src="../../assets/img/embalagem.png" style="max-width: 39%;">
+              
+          </ion-label>
+          <ion-label >
+              <img routerLink='../home' src="../../assets/img/embalagem.png" style="max-width: 39%; float:right;">
+          </ion-label>
+        </ion-list>
+  </div>
+  <div id="texto-motivacional" style="text-align: justify;margin-top: 5%;">
+    {{motivacional}}
+  </div>
+  <div id="imov-footer" style="margin-top: 2%;">
+      <center>
+        <img src="../../assets/img/propagando-inferior.png" >
+      </center>
+  </div>
+
+</div>
+  

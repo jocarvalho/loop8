@@ -1,0 +1,25 @@
+<ion-item-group>
+  <ion-item-divider>
+    <ion-label>Endereço</ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-input placeholder="Cep" (focusout)="preencherCamposPorCep($event.target.value)" [value]=endereco.codigoPostal
+      (input)="endereco.codigoPostal = $event.target.value" [brmasker]="{mask:'00000-000', len:9, userCaracters: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Logradouro" (input)="endereco.logradouro = $event.target.value"
+      [value]="endereco.logradouro"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Complemento" [value]=endereco.complemento
+      (input)="endereco.complemento = $event.target.value"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Bairro" [value]=endereco.bairro (input)="endereco.bairro = $event.target.value"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Cidade" [value]=endereco.cidade (input)="endereco.cidade = $event.target.value"></ion-input>
+    <ion-input placeholder="Uf" [value]=endereco.unidadeFederal (input)="endereco.unidadeFederal = $event.target.value">
+    </ion-input>
+  </ion-item>
+</ion-item-group>

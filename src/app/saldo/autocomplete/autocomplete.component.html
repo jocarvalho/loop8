@@ -1,0 +1,32 @@
+<!--
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text"
+      placeholder="Pick one"
+      aria-label="Number"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+-->
+
+<ion-list>
+  <ion-item>
+    <ion-label position="floating">Supplier*</ion-label>
+    <ion-input (ionChange)="onSearchChange($event)" [(ngModel)]="supplier"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="resultsAvailable">
+    <ion-list style="width: 100%; max-height: 200px; overflow-y: scroll;">
+      <ion-item *ngFor="let result of results" (click)="supplierSelected(result)" button>
+        <ion-label>{{result}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-item>
+</ion-list>

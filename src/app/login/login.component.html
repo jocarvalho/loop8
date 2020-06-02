@@ -1,0 +1,21 @@
+<center>
+  <img src="../../assets/img/logo.png">
+</center>
+<form >
+    <ion-item>
+      <ion-label position="floating">Email/Username</ion-label>
+      <ion-input type="text" [value]="email" (input)="email = $event.target.value" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [value]="password" (input)="password = $event.target.value" required></ion-input>
+    </ion-item>
+    <p *ngIf="loginFail">Usuario ou senha inválidos.</p>
+    <ion-button 
+      color="primary" 
+      expand="block" 
+      
+      (click)="fazerLogin()">Entrar</ion-button>
+</form>
+<ion-button routerLink="/registro">Abrir conta</ion-button>
+

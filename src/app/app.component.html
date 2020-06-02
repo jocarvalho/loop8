@@ -1,3 +1,24 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="main" style="--max-width:60%;">
+        <ion-header>
+          <ion-toolbar >
+              <img src="../../assets/img/logo.png">
+              <ion-avatar class="ion-margin-start">
+                <img src="../../assets/img/avatar.jpg">
+              </ion-avatar>
+              <ion-list-header>{{user}}</ion-list-header>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item routerLink='../home'>Registrar embalagem</ion-item>
+            <ion-item routerLink='../fechar-ecobag'>Fechar ecobag</ion-item>
+            <ion-item routerLink='../coleta'>Solicitar coleta</ion-item>
+            <ion-item routerLink='../saldo'>Meu saldo</ion-item>
+            <ion-item routerLink='../foot-print'>Foot print </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+      
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

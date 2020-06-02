@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  user : string;
+  users : string[] = ['Jefferson', 'Uelto','Ralph'] 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -22,6 +24,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.user = 
+      this.users[this.getRandomInt(0,this.users.length)];
     });
+  }
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 }

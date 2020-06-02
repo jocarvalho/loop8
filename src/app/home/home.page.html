@@ -1,20 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" id="main">
+  
+  <div id="container" style="width: 96%; height: 96%; overflow-y: scroll; margin: 2%;">
+    <ion-header>
+        <ion-toolbar>
+          <ion-title>Registrar embalagem</ion-title>
+          <ion-buttons slot="start">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+       
+    <ion-item>
+      <ion-input type="number" value="" [(ngModel)]="num" placeholder="Código de barras"></ion-input>
+      <ion-button ion-button (click)="addBarcode()" color="secondary">Adicionar</ion-button>
+    </ion-item>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button expand="full" color="dark" (click)="scan()">Capturar embalagem com leitor</ion-button>
+  
+    <div style="width: 100%; height: 65%; overflow-y: scroll;">
+          <ion-item *ngFor="let item of embalagens">
+            <ion-avatar slot="start">
+              <ion-img [src]="item.thumbnail"></ion-img>
+            </ion-avatar>
+            <ion-label style="min-width: 90%">
+              <h2>{{item.brand.name}}</h2>
+              <h4>{{item.description}}</h4>
+              <ion-input maxlength="5" type="number" (focusout)="testAdd([item.gtin,$event.target.value])" value={{item.qtdd}}></ion-input>
+            </ion-label>
+            <ion-button (click)="apagarItem(item)" color="danger">X</ion-button>
+          </ion-item>
+    </div>
+    
+    <ion-button expand="full" color="secondary" (click)="adicionarEcobag()">Adicionar ao ecobag</ion-button>
+    <ion-button expand="full" color="warning" (click)="limparItens()">Limpar itens</ion-button>
+    
   </div>
 </ion-content>

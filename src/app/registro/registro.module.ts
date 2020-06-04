@@ -5,6 +5,7 @@ import {RegistroRoutingModule} from '../registro/registro-routing.module'
 import { EnderecoComponent } from './endereco/endereco.component';
 import {ImageupComponent} from './imageup/imageup.component'
 import { BrMaskerModule } from 'br-mask';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { BrMaskerModule } from 'br-mask';
   imports: [
     CommonModule,
     RegistroRoutingModule,
-    BrMaskerModule
+    BrMaskerModule,
+    IonicModule
   ],
 
 })

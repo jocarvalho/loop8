@@ -3,7 +3,7 @@
   <div id="container" style="width: 96%; height: 96%; overflow-y: scroll; margin: 2%;">
     <ion-header>
         <ion-toolbar>
-          <ion-title>Registrar embalagem</ion-title>
+          <ion-title>Fechar Ecobag</ion-title>
           <ion-buttons slot="start">
             <ion-menu-button autoHide="false"></ion-menu-button>
           </ion-buttons>
@@ -11,14 +11,14 @@
       </ion-header>
        
     <ion-item>
-      <ion-input type="number" value="" [(ngModel)]="num" placeholder="Código de barras"></ion-input>
-      <ion-button ion-button (click)="addBarcode()" color="secondary">Adicionar</ion-button>
+      <ion-label position="floating"><ion-text color="danger">*</ion-text></ion-label>
+      <ion-input value="" [(ngModel)]="codigoEcobag" placeholder="Código do Ecobag" ></ion-input>
     </ion-item>
 
-    <ion-button expand="full" color="dark" (click)="scan()">Capturar embalagem com leitor</ion-button>
+    <ion-button expand="full" color="dark" >Capturar ecobag com leitor</ion-button>
   
     <div style="width: 100%; height: 65%; overflow-y: scroll;">
-          <ion-item *ngFor="let item of embalagens">
+          <ion-item *ngFor="let item of items">
             <ion-avatar slot="start">
               <ion-img [src]="item.thumbnail"></ion-img>
             </ion-avatar>
@@ -30,9 +30,9 @@
             <ion-button (click)="apagarItem(item)" color="danger">X</ion-button>
           </ion-item>
     </div>
-    
-    <!--<ion-button expand="full" color="secondary" (click)="adicionarEcobag()">Adicionar ao ecobag</ion-button>-->
-    <ion-button expand="full" color="warning" (click)="chamarColetor()">Fechar Ecobag</ion-button>
+
+    <ion-button expand="full" color="secondary" (click)="dismiss()">Cancelar</ion-button>
+    <ion-button expand="full" color="warning" (click)="chamarColetor()">Confimar</ion-button>
     
   </div>
 </ion-content>

@@ -3,16 +3,21 @@ import {Produto} from './produto';
 import { Observable, of, Subscriber } from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-   sourceProd:string = "https://loop8.herokuapp.com/produto";
-   sourceTest:string = "http://localhost:3000/produto"
 
-  produtoUrl:string = this.sourceProd;
-  constructor(private http: HttpClient) { }
+   produto:string = "https://loop8.herokuapp.com/produto";
+   produtoTest:string = "http://localhost:3000/produto";
+   ecobagRest:string ="http://localhost:3000/ecobag";
+   ecobagRestTest:string ="https://loop8.herokuapp.com/ecobag";
+   produtoUrl:string = this.produto;
+
+  constructor(private http: HttpClient, private storage:Storage) { }
+  
   
   getProduto(id: string): Observable<Produto> {
     const url = `${this.produtoUrl}/${id}`;
@@ -33,5 +38,14 @@ export class HomeService {
   }
   private log(msg:string){
     console.log(msg);
+  }
+  chamarColetor(items:any, ecobag:any){
+    const user = items.user;
+    items.user = undefined;
+    return this.http.post(this.ecobagRest,{user:user, produtos:items, ecobag:ecobag, status:"fechado"}).pipe(
+      tap(),
+      catchError(this.handleError<any>(`produto id=${ecobag}`))
+    );
+    
   }
 }

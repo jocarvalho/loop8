@@ -12,17 +12,19 @@ export class LoginComponent implements OnInit {
 
   email:string;
   password:string;
+  loginFail:boolean=false;
   constructor(private service:LoginService, private router : Router,
     private storage:Storage) { }
 
   fazerLogin(){
-    this.service.fazerLogin(this.email, this.password, (result)=>{
-      console.log(`${this.email}, ${this.password}`)
-        if(result.user.id)
-          this.router.navigateByUrl('/saldo');
-        else
-          console.log('User or pass invalid');
-          //this.router.navigateByUrl('/registro');
+    this.service.fazerLogin(this.email, this.password, (err, result)=>{
+      
+      if(err){
+        this.loginFail=true;
+        console.log('User or pass invalid');
+      }else
+       if(result.user.id)
+          this.router.navigateByUrl('/saldo');    
     });
   }
 

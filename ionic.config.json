@@ -1,5 +1,15 @@
+
 {
-  "name": "IonicCamera",
+
+
+
+
+  "name": "loop",
+
+
+
+
+
   "integrations": {
     "capacitor": {},
     "cordova": {}
